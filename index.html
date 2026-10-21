@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>To-Do List</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-wrapper">
+
+    <!-- Header -->
+    <header class="app-header">
+      <h1>📋 To-Do List</h1>
+      <p class="subtitle">Kelola tugas harianmu dengan mudah</p>
+    </header>
+
+    <!-- Input Section -->
+    <section class="input-card">
+      <div class="input-group">
+        <input
+          type="text"
+          id="task-input"
+          class="task-input"
+          placeholder="Tambah tugas baru…"
+          autocomplete="off"
+        />
+      </div>
+      <div class="input-row">
+        <input
+          type="datetime-local"
+          id="task-datetime"
+          class="datetime-input"
+        />
+        <button id="add-btn" class="btn btn-primary">
+          <span class="btn-icon">＋</span> Tambah
+        </button>
+      </div>
+    </section>
+
+    <!-- Filter Tabs -->
+    <nav class="filter-tabs">
+      <button class="tab active" data-filter="all">Semua</button>
+      <button class="tab" data-filter="pending">Aktif</button>
+      <button class="tab" data-filter="done">Selesai</button>
+    </nav>
+
+    <!-- Task List -->
+    <section class="task-list-section">
+      <ul id="task-list" class="task-list"></ul>
+      <div id="empty-state" class="empty-state hidden">
+        <span class="empty-icon">🗒️</span>
+        <p>Belum ada tugas di sini.</p>
+      </div>
+    </section>
+
+    <!-- Footer / Stats -->
+    <div class="stats-bar">
+      <span id="stats-text">0 tugas tersisa</span>
+      <button id="clear-done-btn" class="btn btn-ghost">Hapus selesai</button>
+    </div>
+
+    <!-- Notification Settings -->
+    <section class="settings-card">
+      <h2 class="settings-title">🔔 Pengaturan Notifikasi Suara</h2>
+
+      <div class="setting-row">
+        <label class="toggle-label" for="notif-toggle">
+          Aktifkan suara notifikasi
+        </label>
+        <label class="toggle-switch">
+          <input type="checkbox" id="notif-toggle" />
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <div class="setting-row" id="voice-settings">
+        <label for="voice-select" class="setting-label">Jenis suara</label>
+        <div class="segmented-control">
+          <input type="radio" name="voice-gender" id="voice-female" value="female" checked />
+          <label for="voice-female">👩 Wanita</label>
+          <input type="radio" name="voice-gender" id="voice-male" value="male" />
+          <label for="voice-male">👨 Pria</label>
+        </div>
+      </div>
+
+      <div class="setting-row" id="voice-name-row">
+        <label for="voice-select" class="setting-label">Pilih suara</label>
+        <select id="voice-select" class="voice-select"></select>
+      </div>
+
+      <div class="setting-row">
+        <button id="test-voice-btn" class="btn btn-secondary">
+          ▶ Uji Suara
+        </button>
+      </div>
+    </section>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
